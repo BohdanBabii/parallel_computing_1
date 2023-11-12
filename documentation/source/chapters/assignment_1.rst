@@ -14,6 +14,11 @@ Denis Novikau: Part 1, 2, 3
 
 Lucas Obitz: Part 1, 2, 3
 
+.. _ch:part_1_1:
+
+Part 1
+------
+
 .. admonition:: Task
 
   **Part 1:** Implementing the Memory Benchmark
@@ -93,6 +98,11 @@ Some memory bandwidth benchmarking tools are:
 
 .. literalinclude:: ../../../src/week_4/PNG/memory_bandwidth_old.csv
 
+.. _ch:part_1_2:
+
+Part 2
+------
+
 .. admonition:: Task
 
   **Part 2:** Visualizing the Results
@@ -114,7 +124,14 @@ As for the role of different cache levels in the results, you can infer insights
 
 **3. Visualization**
 
-.. image:: ../../../src/week_4/PNG/bandwidth_visualization_local_old.png
+.. image:: ../../../src/week_4/PNG/memory_bandwidth_plot_new_30_points.png
+
+Our dataset for this graph has been expanded, incorporating additional data points to enhance its comprehensiveness.
+
+.. _ch:part_1_3:
+
+Part 3
+------
 
 .. admonition:: Task
 
@@ -130,8 +147,6 @@ This section presents a Slurm script designed to execute both a C++ program and 
 **1. Slurm Script**
 
 .. literalinclude:: ../../../src/week_4/mem_bandwidth_script.sh
-
-.. image:: ../../../src/week_4/PNG/memory_bandwidth_plot_new_30_points.png
 
 **Results:**
 
