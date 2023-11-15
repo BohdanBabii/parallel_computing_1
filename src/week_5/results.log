@@ -1,0 +1,21 @@
+# Using 'mpirun -np 10 ./task_6_1.o'
+Process with rank: 0 has send the initial value: 42 to Process with rank: 1
+Process with rank: 1 has received the value: 42 from Process with rank: 0
+Process with rank: 1 has send the initial value: 42 to Process with rank: 2
+Process with rank: 2 has received the value: 42 from Process with rank: 1
+Process with rank: 2 has send the initial value: 42 to Process with rank: 3
+Process with rank: 3 has received the value: 42 from Process with rank: 2
+Process with rank: 3 has send the initial value: 42 to Process with rank: 4
+Process with rank: 4 has received the value: 42 from Process with rank: 3
+Process with rank: 4 has send the initial value: 42 to Process with rank: 5
+Process with rank: 5 has received the value: 42 from Process with rank: 4
+Process with rank: 5 has send the initial value: 42 to Process with rank: 6
+Process with rank: 6 has received the value: 42 from Process with rank: 5
+Process with rank: 6 has send the initial value: 42 to Process with rank: 7
+Process with rank: 7 has received the value: 42 from Process with rank: 6
+Process with rank: 7 has send the initial value: 42 to Process with rank: 8
+Process with rank: 8 has received the value: 42 from Process with rank: 7
+Process with rank: 8 has send the initial value: 42 to Process with rank: 9
+Process with rank: 9 has received the value: 42 from Process with rank: 8
+Process with rank: 9 has send the initial value: 42 to Process with rank: 0
+Process with rank: 0 has received the value: 42 from Process with rank: 9
