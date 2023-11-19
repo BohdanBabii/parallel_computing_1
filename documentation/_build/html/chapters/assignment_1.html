@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. Report Week 4 &mdash; Parallel Computing 1  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Report Week 5" href="assignment_2.html" />
+    <link rel="prev" title="1. User Documentation" href="user_documentation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Parallel Computing 1
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="user_documentation.html">1. User Documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Report Week 4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#contribution">2.1. Contribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#part-1">2.2. Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#part-2">2.3. Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#part-3">2.4. Part 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="assignment_2.html">3. Report Week 5</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Parallel Computing 1</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">2. </span>Report Week 4</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/chapters/assignment_1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="report-week-4">
+<span id="ch-task-1-1"></span><h1><span class="section-number">2. </span>Report Week 4<a class="headerlink" href="#report-week-4" title="Permalink to this heading"></a></h1>
+<section id="contribution">
+<span id="ch-contribution"></span><h2><span class="section-number">2.1. </span>Contribution<a class="headerlink" href="#contribution" title="Permalink to this heading"></a></h2>
+<p>Bohdan Babii: Part 1, Documentation</p>
+<p>Denis Novikau: Part 1, 2, 3</p>
+<p>Lucas Obitz: Part 1, 2, 3</p>
+</section>
+<section id="part-1">
+<span id="ch-part-1-1"></span><h2><span class="section-number">2.2. </span>Part 1<a class="headerlink" href="#part-1" title="Permalink to this heading"></a></h2>
+<div class="admonition-task admonition">
+<p class="admonition-title">Task</p>
+<p><strong>Part 1:</strong> Implementing the Memory Benchmark</p>
+<ol class="arabic simple">
+<li><p>Read about various memory bandwidth benchmarking tools and methods and give a short report on it.</p></li>
+<li><p>Develop a C/C++ program that measures memory bandwidth using one of the benchmarks, for example STREAM Triad.</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>The program should compute the memory bandwidth by iterating over different array sizes (at least 30 varied sizes, considering L1, L2 and L3 cache levels).</p></li>
+<li><p>Store the results in a CSV file named “memory_bandwidth.csv” with “Array Size (bytes)” and “Bandwidth (GB/s)” headers.
+(If you want to use GB/cycle don’t forget to report the frequency).</p></li>
+<li><p>Consider at least 10000 iterations.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<p>This project delves into memory bandwidth benchmarking, exploring tools like AIDA64, PassMark PerformanceTest, SiSoftware Sandra, and Geekbench. Various benchmarking methods, including sequential and random read/write, latency testing, cache hierarchy testing, and multi-threaded testing, were investigated.</p>
+<p>To practically measure memory bandwidth, we implemented a C++ program utilizing the STREAM Triad methodology. The program iterates over different array sizes, considering L1, L2, and L3 cache levels, and records results in a CSV file (“memory_bandwidth.csv”). The file details array sizes in bytes and corresponding bandwidth in gigabytes per second.</p>
+<p><strong>1. Memory Bandwidth Benchmarking tools</strong></p>
+<p>First of all bandwidth memory benchmark measure the maximum achievable memory data transfer bandwidth.</p>
+<p>Some memory bandwidth benchmarking tools are:</p>
+<ul>
+<li><p>AIDA64</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Description: AIDA64 is a comprehensive system diagnostic and benchmarking tool that provides detailed information about various aspects of a computer’s hardware and software. AIDA64 is the successor for AIDA32 and EVEREST.</p></li>
+<li><p>Memory Benchmarking Feature: AIDA64 includes a memory benchmarking tool that measures memory read, write, and copy speeds. It also provides latency measurements.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>PassMark PerformanceTest</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Description: PerformanceTest is a benchmarking tool suite that covers various aspects of system performance, including CPU, GPU, disk, and memory.</p></li>
+<li><p>Memory Benchmarking Feature: It includes a memory benchmarking test that measures memory bandwidth, latency, and throughput.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>SiSoftware Sandra</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Description: Sandra is a system diagnostic and benchmarking tool that offers a wide range of tests for various hardware components. It works similar to AIDA32 or EVEREST.</p></li>
+<li><p>Memory Benchmarking Feature: Sandra includes a memory benchmarking module that tests both bandwidth and latency of different memory operations.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Geekbench</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Description: Geekbench is a cross-platform benchmarking tool that assesses both CPU and memory performance.</p></li>
+<li><p>Memory Benchmarking Feature: It includes a memory benchmark that measures memory read and write speeds, along with latency.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Some memory bandwidth benchmarking methods are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Sequential Read/Write</p></li>
+<li><p>Description: This method involves reading or writing data in a continuous, sequential manner.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>Purpose:</strong></p>
+<blockquote>
+<div><p>It measures the maximum data transfer rate during sustained, sequential operations. This is crucial for tasks like video editing, file copying, and other operations that involve large files.</p>
+</div></blockquote>
+<ul>
+<li><p>Random Read/Write</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Description: In this method, data is accessed at random locations in memory rather than sequentially.</p></li>
+<li><p>Purpose: It assesses how well the memory performs when accessing data in a non-linear fashion. This is important for tasks involving small, random accesses, such as database operations.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Latency Testing</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Description: Latency is the time it takes for a request for data to be fulfilled. It measures the delay between the request and the actual delivery of the data.</p></li>
+<li><p>Purpose: Low latency is critical for tasks that require rapid response times, such as gaming, real-time simulations, and some scientific computing applications.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Cache Hierarchy Testing</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Description: Some benchmarking tools provide insights into the performance of different levels of cache memory, including L1, L2, and L3 caches.</p></li>
+<li><p>Purpose: Understanding cache performance helps in optimizing algorithms and code for specific memory hierarchies.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Multi-Threaded Testing</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Description: This method evaluates memory performance under the conditions of multiple simultaneous read and write operations.</p></li>
+<li><p>Purpose: It’s relevant for multi-threaded applications that require fast access to various data sets concurrently. This helps assess how well memory handles parallel processing.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>2. C++ memor bandwidth program</strong></p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fstream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;chrono&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdlib&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span><span class="w"> </span><span class="n">outfile</span><span class="p">(</span><span class="s">&quot;memory_bandwidth.csv&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">outfile</span><span class="p">.</span><span class="n">is_open</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Error: Could not create file!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">outfile</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Array Size (bytes),Bandwidth (GB/s)&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ITERATIONS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10000</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">l_scalar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">1024000000</span><span class="p">;</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">l_A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">double</span><span class="p">[</span><span class="n">size</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)];</span>
+<span class="w">        </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">l_B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">double</span><span class="p">[</span><span class="n">size</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)];</span>
+<span class="w">        </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">l_C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">double</span><span class="p">[</span><span class="n">size</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)];</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">);</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">l_A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">rand</span><span class="p">())</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">RAND_MAX</span><span class="p">;</span>
+<span class="w">            </span><span class="n">l_B</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">rand</span><span class="p">())</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">RAND_MAX</span><span class="p">;</span>
+<span class="w">            </span><span class="n">l_C</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">l_start_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">high_resolution_clock</span><span class="o">::</span><span class="n">now</span><span class="p">();</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">iter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">iter</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ITERATIONS</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">iter</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">);</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">l_C</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l_A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">l_scalar</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">l_B</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">l_end_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">high_resolution_clock</span><span class="o">::</span><span class="n">now</span><span class="p">();</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">duration</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">l_duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l_end_time</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">l_start_time</span><span class="p">;</span>
+
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">l_data_access_speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ITERATIONS</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">l_duration</span><span class="p">.</span><span class="n">count</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mi">1024</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1024</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">outfile</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">l_data_access_speed</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">delete</span><span class="p">[]</span><span class="w"> </span><span class="n">l_A</span><span class="p">;</span>
+<span class="w">        </span><span class="k">delete</span><span class="p">[]</span><span class="w"> </span><span class="n">l_B</span><span class="p">;</span>
+<span class="w">        </span><span class="k">delete</span><span class="p">[]</span><span class="w"> </span><span class="n">l_C</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">outfile</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Array</span> <span class="n">Size</span> <span class="p">(</span><span class="nb">bytes</span><span class="p">),</span><span class="n">Bandwidth</span> <span class="p">(</span><span class="n">GB</span><span class="o">/</span><span class="n">s</span><span class="p">)</span>
+<span class="mi">1024</span><span class="p">,</span><span class="mf">9.10277</span>
+<span class="mi">2048</span><span class="p">,</span><span class="mf">9.41809</span>
+<span class="mi">4096</span><span class="p">,</span><span class="mf">12.2321</span>
+<span class="mi">8192</span><span class="p">,</span><span class="mf">18.9134</span>
+<span class="mi">16384</span><span class="p">,</span><span class="mf">29.2596</span>
+<span class="mi">32768</span><span class="p">,</span><span class="mf">32.1639</span>
+<span class="mi">65536</span><span class="p">,</span><span class="mf">32.311</span>
+<span class="mi">131072</span><span class="p">,</span><span class="mf">36.1846</span>
+<span class="mi">262144</span><span class="p">,</span><span class="mf">35.1932</span>
+<span class="mi">524288</span><span class="p">,</span><span class="mf">27.5285</span>
+<span class="mi">1048576</span><span class="p">,</span><span class="mf">24.464</span>
+<span class="mi">2097152</span><span class="p">,</span><span class="mf">24.5438</span>
+<span class="mi">4194304</span><span class="p">,</span><span class="mf">24.3757</span>
+<span class="mi">8388608</span><span class="p">,</span><span class="mf">19.743</span>
+<span class="mi">16777216</span><span class="p">,</span><span class="mf">14.2409</span>
+<span class="mi">33554432</span><span class="p">,</span><span class="mf">12.4863</span>
+<span class="mi">67108864</span><span class="p">,</span><span class="mf">11.782</span>
+<span class="mi">134217728</span><span class="p">,</span><span class="mf">11.4492</span>
+<span class="mi">268435456</span><span class="p">,</span><span class="mf">11.3034</span>
+<span class="mi">536870912</span><span class="p">,</span><span class="mf">11.2613</span>
+</pre></div>
+</div>
+</section>
+<section id="part-2">
+<span id="ch-part-1-2"></span><h2><span class="section-number">2.3. </span>Part 2<a class="headerlink" href="#part-2" title="Permalink to this heading"></a></h2>
+<div class="admonition-task admonition">
+<p class="admonition-title">Task</p>
+<p><strong>Part 2:</strong> Visualizing the Results</p>
+<ol class="arabic simple">
+<li><p>Develop a script (e.g., in Python) to read the CSV file and create a plot of the memory bandwidth data.</p></li>
+<li><p>Find out the role of different cache levels in your results.</p></li>
+<li><p>Save the plot as an image file (e.g., “memory_bandwidth_plot.png”).</p></li>
+</ol>
+</div>
+<p>We progressed to visualizing the memory bandwidth results using a Python script. Leveraging pandas and matplotlib, the script reads the CSV file and generates a plot of array sizes against bandwidth. This visual representation, saved as “memory_bandwidth_plot.png,” allows us to discern patterns related to cache levels.</p>
+<p><strong>1. csvreader.py</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Read the CSV file</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;memory_bandwidth.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># Extract the data</span>
+<span class="n">array_sizes</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Array Size (bytes)&#39;</span><span class="p">]</span>
+<span class="n">bandwidths</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Bandwidth (GB/s)&#39;</span><span class="p">]</span>
+
+<span class="c1"># Create the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">array_sizes</span><span class="p">,</span> <span class="n">bandwidths</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Set x-axis to logarithmic scale</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Memory Bandwidth vs Array Size&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Array Size (bytes)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Bandwidth (GB/s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="c1"># Save the plot as a PDF</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;memory_bandwidth_plot.png&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;png&#39;</span><span class="p">)</span>
+
+<span class="c1"># Show the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+</pre></div>
+</div>
+<p><strong>2. Cache level roles</strong></p>
+<p>As for the role of different cache levels in the results, you can infer insights by observing how the bandwidth changes with increasing array sizes. Typically, as the array size increases, you may notice a sudden drop in bandwidth when the array size exceeds the capacity of a certain cache level (L1, L2, or L3). This drop indicates that the data no longer fits into the cache, leading to increased access times to the main memory.</p>
+<p><strong>3. Visualization</strong></p>
+<img alt="../_images/memory_bandwidth_plot_new_30_points.png" src="../_images/memory_bandwidth_plot_new_30_points.png" />
+<p>Our dataset for this graph has been expanded, incorporating additional data points to enhance its comprehensiveness.</p>
+</section>
+<section id="part-3">
+<span id="ch-part-1-3"></span><h2><span class="section-number">2.4. </span>Part 3<a class="headerlink" href="#part-3" title="Permalink to this heading"></a></h2>
+<div class="admonition-task admonition">
+<p class="admonition-title">Task</p>
+<p><strong>Part 3:</strong> Slurm Script</p>
+<ol class="arabic simple">
+<li><p>Write a Slurm script to run C++ and python program on a <strong>full</strong> node.</p></li>
+<li><p>Choose your desired compiler and flags and report it.</p></li>
+<li><p>Load necessary modules and use required sbatch options.</p></li>
+<li><p>Find the maximum memory bandwidth on your assigned node, share your results, and explain the changes there.</p></li>
+</ol>
+</div>
+<p>This section presents a Slurm script designed to execute both a C++ program and a Python script on a full node. The script, named “memory_bandwidth_test,” is configured to request a substantial amount of memory (183GB) and utilizes 72 CPUs. It loads essential Python and libxc modules, compiles the C++ program using the g++ compiler with specified flags, and subsequently executes both programs. The resulting memory bandwidth data is visualized using a Python script, generating insights into system performance under heavy workloads. This introduction sets the stage for understanding the configuration, execution, and interpretation of the memory bandwidth test on a designated full node.</p>
+<p><strong>1. Slurm Script</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --job-name=memory_bandwidth_test</span>
+<span class="c1">#SBATCH --output=mem_bandwidth_out.out</span>
+<span class="c1">#SBATCH --error=mem_bandwidth_err.err</span>
+<span class="c1">#SBATCH --partition=s_hadoop</span>
+<span class="c1">#SBATCH --nodes=1</span>
+<span class="c1">#SBATCH --ntasks=1</span>
+<span class="c1">#SBATCH --mem=183G</span>
+<span class="c1">#SBATCH --time=1:30:00</span>
+<span class="c1">#SBATCH --cpus-per-task=72</span>
+
+<span class="n">module</span> <span class="n">load</span> <span class="n">tools</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="mf">3.8</span>
+<span class="n">module</span> <span class="n">load</span> <span class="n">libs</span><span class="o">/</span><span class="n">libxc</span><span class="o">/</span><span class="mf">5.1.7</span><span class="o">-</span><span class="n">gcc</span><span class="o">-</span><span class="mf">7.3.0</span>
+
+<span class="c1"># Compile the C++ program</span>
+<span class="n">g</span><span class="o">++</span> <span class="o">-</span><span class="n">O3</span> <span class="o">-</span><span class="n">std</span><span class="o">=</span><span class="n">c</span><span class="o">++</span><span class="mi">11</span> <span class="n">bandwidth</span><span class="o">.</span><span class="n">cpp</span> <span class="o">-</span><span class="n">o</span> <span class="n">memory_bandwidth</span><span class="o">.</span><span class="n">o</span>
+
+<span class="c1"># Execute the C++ program</span>
+<span class="o">./</span><span class="n">memory_bandwidth</span><span class="o">.</span><span class="n">o</span>
+
+<span class="c1"># Run the Python program</span>
+<span class="n">python</span> <span class="n">csvreader</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p><strong>Results:</strong></p>
+<p>The script requests a substantial amount of memory (183GB) and utilizes 72 CPUs. After loading the necessary modules, it compiles and runs the C++ program, followed by the execution of the Python script for visualization.</p>
+<p><strong>Explanation of Changes in Maximum Memory Bandwidth:</strong></p>
+<p>Running the memory bandwidth test on a full node taps into maximum computing power, impacting performance results. The larger memory and parallel processing capacity can cause variations in maximum memory bandwidth, giving insights into system behavior under heavier workloads. The extent of changes depends on the specific capabilities of the assigned node.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="user_documentation.html" class="btn btn-neutral float-left" title="1. User Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="assignment_2.html" class="btn btn-neutral float-right" title="3. Report Week 5" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Bohdan Babii, Denis Novikau, Lucas Obitz.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
