@@ -1,0 +1,20 @@
+Process with rank: 0 has send the initial value: 0 to Process with rank: 1
+Process with rank: 1 has received the value: 0 from Process with rank: 0
+Process with rank: 1 has send the initial value: 1 to Process with rank: 2
+Process with rank: 2 has received the value: 1 from Process with rank: 1
+Process with rank: 2 has send the initial value: 3 to Process with rank: 3
+Process with rank: 3 has received the value: 3 from Process with rank: 2
+Process with rank: 3 has send the initial value: 6 to Process with rank: 4
+Process with rank: 4 has received the value: 6 from Process with rank: 3
+Process with rank: 4 has send the initial value: 10 to Process with rank: 5
+Process with rank: 5 has received the value: 10 from Process with rank: 4
+Process with rank: 5 has send the initial value: 15 to Process with rank: 6
+Process with rank: 6 has received the value: 15 from Process with rank: 5
+Process with rank: 6 has send the initial value: 21 to Process with rank: 7
+Process with rank: 7 has received the value: 21 from Process with rank: 6
+Process with rank: 7 has send the initial value: 28 to Process with rank: 8
+Process with rank: 8 has received the value: 28 from Process with rank: 7
+Process with rank: 8 has send the initial value: 36 to Process with rank: 9
+Process with rank: 9 has received the value: 36 from Process with rank: 8
+Process with rank: 9 has send the initial value: 36 to Process with rank: 0
+Process with rank: 0 has received the value: 36 from Process with rank: 9

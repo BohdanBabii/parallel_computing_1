@@ -101,26 +101,26 @@ The my_custom_reduction function, utilizing MPI in C++, implements a non-blockin
 Screenshot
 ----------
 
-.. image:: ../../../src/week_6/screenshot.png
+.. image:: ../../../src/week_5/screenshot.png
     :width: 400
     :alt: my_custom_reduction
 
 SLURM script
 ------------
 
-.. literalinclude:: ../../../src/week_6/my_custom_reduction.sh
+.. literalinclude:: ../../../src/week_5/my_custom_reduction.sh
     :linenos:
 
 SLURM output
 ------------
 
-.. literalinclude:: ../../../src/week_6/my_custom_reduction_job.out
+.. literalinclude:: ../../../src/week_5/my_custom_reduction_job.out
     :linenos:
 
 SLURM error
 -----------
 
-.. literalinclude:: ../../../src/week_6/my_custom_reduction_job.err
+.. literalinclude:: ../../../src/week_5/my_custom_reduction_job.err
     :linenos:
 
 MPI command

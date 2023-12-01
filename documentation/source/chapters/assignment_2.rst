@@ -88,7 +88,7 @@ Part 2
 
 The provided C++ MPI program demonstrates a basic circular data exchange among multiple processes. Using MPI_Send and MPI_Recv, the processes form a ring structure where process 0 initiates by sending a value to the next process. The value is then passed along until the last process sends it back to process 0. Each process prints messages indicating sent and received values along with ranks. This example showcases fundamental MPI communication functions for distributed computing, providing a concise illustration of message-passing concepts.
 
-.. literalinclude:: ../../../src/week_5/task_6_1.cpp
+.. literalinclude:: ../../../src/week_4/task_6_1.cpp
     :linenos:
 
 |
@@ -96,5 +96,5 @@ The provided C++ MPI program demonstrates a basic circular data exchange among m
 **result.log**
 
 
-.. literalinclude:: ../../../src/week_5/results.log
+.. literalinclude:: ../../../src/week_4/results.log
     :linenos:

@@ -93,10 +93,10 @@ Some memory bandwidth benchmarking tools are:
 
 **2. C++ memor bandwidth program**
 
-.. literalinclude:: ../../../src/week_4/bandwidth.cpp
+.. literalinclude:: ../../../src/week_3/bandwidth.cpp
     :language: c++
 
-.. literalinclude:: ../../../src/week_4/PNG/memory_bandwidth_old.csv
+.. literalinclude:: ../../../src/week_3/PNG/memory_bandwidth_old.csv
 
 .. _ch:part_1_2:
 
@@ -115,7 +115,7 @@ We progressed to visualizing the memory bandwidth results using a Python script.
 
 **1. csvreader.py**
 
-.. literalinclude:: ../../../src/week_4/csvreader.py
+.. literalinclude:: ../../../src/week_3/csvreader.py
     :language: python
 
 **2. Cache level roles**
@@ -124,7 +124,7 @@ As for the role of different cache levels in the results, you can infer insights
 
 **3. Visualization**
 
-.. image:: ../../../src/week_4/PNG/memory_bandwidth_plot_new_30_points.png
+.. image:: ../../../src/week_3/PNG/memory_bandwidth_plot_new_30_points.png
 
 Our dataset for this graph has been expanded, incorporating additional data points to enhance its comprehensiveness.
 
@@ -146,7 +146,7 @@ This section presents a Slurm script designed to execute both a C++ program and 
 
 **1. Slurm Script**
 
-.. literalinclude:: ../../../src/week_4/mem_bandwidth_script.sh
+.. literalinclude:: ../../../src/week_3/mem_bandwidth_script.sh
 
 **Results:**
 
