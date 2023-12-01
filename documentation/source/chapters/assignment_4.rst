@@ -73,8 +73,8 @@ In the given MPI program, the **MPI_Bcast** function outperforms the custom **tr
 
 .. math::
 
-    \text{{MPI\_Bcast time: }} 9.2929 \times 10^{-5} \text{{ seconds.}} \\
-    \text{{Custom tree\_broadcast time: }} 5.80006 \times 10^{-4} \text{{ seconds.}}
+    \text{MPI\_Bcast time: } 9.2929 \times 10^{-5} \text{ seconds.} \\
+    \text{Custom tree\_broadcast time: } 5.80006 \times 10^{-4} \text{ seconds.}
 
 In this run, MPI_Bcast is approximately 6 times faster than tree_broadcast. The efficiency of the standard MPI broadcast operation is attributed to its optimized implementation, which handles broadcast operations more effectively than the custom tree-based approach.
 
@@ -95,3 +95,15 @@ SLURM error
 
 .. literalinclude:: ../../../src/week_6/tree_broadcast_job.err
     :linenos:
+
+
+.. admonition:: Task
+
+  #. Write a C/C++ code that splits the default communicator into four different subgroups based on the current rank.
+
+.. block-code:: c++
+    :linenos:
+
+     int subgroup = rank / 4;
+
+This C++ MPI code divides the default communicator (MPI_COMM_WORLD) into four subgroups based on process ranks. It calculates a subgroup identifier for each process by dividing its rank by 4. The code uses MPI_Comm_split to create subgroups, and then prints information about the original and subgroup communicators, including ranks and sizes. 
