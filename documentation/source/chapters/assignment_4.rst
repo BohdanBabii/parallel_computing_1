@@ -30,7 +30,7 @@ The **tree_broadcast** function implements a parallelized tree-based broadcast o
 
 **tree_broadcast:**
 
-.. block-code:: c++
+.. code-block:: c++
     :linenos:
 
     void tree_broadcast(int size, int rank, int comm_size) {
@@ -101,9 +101,10 @@ SLURM error
 
   #. Write a C/C++ code that splits the default communicator into four different subgroups based on the current rank.
 
-.. block-code:: c++
+.. code-block:: c++
     :linenos:
 
      int subgroup = rank / 4;
+
 
 This C++ MPI code divides the default communicator (MPI_COMM_WORLD) into four subgroups based on process ranks. It calculates a subgroup identifier for each process by dividing its rank by 4. The code uses MPI_Comm_split to create subgroups, and then prints information about the original and subgroup communicators, including ranks and sizes. 
