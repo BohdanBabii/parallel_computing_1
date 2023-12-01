@@ -30,7 +30,7 @@ The **tree_broadcast** function implements a parallelized tree-based broadcast o
 
 **tree_broadcast:**
 
-.. code-block:: c++
+.. block-code:: c++
     :linenos:
 
     void tree_broadcast(int size, int rank, int comm_size) {
