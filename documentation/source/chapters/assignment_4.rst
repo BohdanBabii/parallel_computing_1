@@ -135,7 +135,7 @@ SLURM error
 
     MPI_Finalize();
     return 0;
-  }
+    }
 
 
 This C++ MPI code divides the default communicator (MPI_COMM_WORLD) into four subgroups based on process ranks. It calculates a subgroup identifier for each process by dividing its rank by 4. The code uses MPI_Comm_split to create subgroups, and then prints information about the original and subgroup communicators, including ranks and sizes. 
