@@ -104,7 +104,56 @@ SLURM error
 .. code-block:: c++
     :linenos:
 
-     int subgroup = rank / 4;
+    #include <mpi.h>
+    #include <iostream>
+
+    int main(int argc, char** argv) {
+    MPI_Init(&argc, &argv);
+
+    int rank, size;
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+    MPI_Comm_size(MPI_COMM_WORLD, &size);
+
+    // Determine color based on 0, 1, 2 or 3
+    int color = rank / 4;
+
+    // Split the communicator based on color
+    MPI_Comm new_comm;
+    MPI_Comm_split(MPI_COMM_WORLD, color, rank, &new_comm);
+
+    int new_rank, new_size;
+    MPI_Comm_rank(new_comm, &new_rank);
+    MPI_Comm_size(new_comm, &new_size);
+
+    // Print information about the original and new communicators
+    std::cout << "Rank " << rank << " out of " << size << " in MPI_COMM_WORLD, " \
+              << "New Rank " << new_rank << " out of " << new_size << " in new_comm, " \
+              << "Subgroup " << color << std::endl;
+
+
+    MPI_Comm_free(&new_comm);
+
+    MPI_Finalize();
+    return 0;
+  }
 
 
 This C++ MPI code divides the default communicator (MPI_COMM_WORLD) into four subgroups based on process ranks. It calculates a subgroup identifier for each process by dividing its rank by 4. The code uses MPI_Comm_split to create subgroups, and then prints information about the original and subgroup communicators, including ranks and sizes. 
+
+SLURM script
+------------
+
+.. literalinclude:: ../../../src/week_6/subgroups.sh
+    :linenos:
+
+SLURM output
+------------
+
+.. literalinclude:: ../../../src/week_6/mysubgroup.out
+    :linenos:
+
+SLURM error
+-----------
+
+.. literalinclude:: ../../../src/week_6/mysubgroup.err
+    :linenos:
