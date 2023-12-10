@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cassert>
 
-// GET Data from Proc1 
+// GET Data from Proc0 
 int main(int argc, char** argv) {
   int l_ret;
 
