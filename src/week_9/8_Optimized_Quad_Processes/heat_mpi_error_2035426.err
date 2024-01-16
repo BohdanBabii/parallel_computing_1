@@ -1,0 +1,7 @@
+heat_update.cpp: In function 'void update_interior_temperature(Field*, Field*, double, double)':
+heat_update.cpp:146:12: warning: unused variable 'dy_2' [-Wunused-variable]
+  146 |     double dy_2 = prev->dy * prev->dy;
+      |            ^~~~
+heat_update.cpp:147:12: warning: unused variable 'dx_2' [-Wunused-variable]
+  147 |     double dx_2 = prev->dx * prev->dx;
+      |            ^~~~
