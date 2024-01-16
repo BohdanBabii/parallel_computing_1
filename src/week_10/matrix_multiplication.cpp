@@ -79,7 +79,47 @@ void matmul_kmn(double* i_A,
             for (std::size_t l_n = 0; l_n < i_n; l_n++)
                 io_C[l_m * i_n + l_n] += i_A[l_m * i_k + l_k] * i_B[l_k * i_n + l_n];
 }
+void getTime(double* i_A, double* i_B, int type) {
+    String::size_type sz;
+    const int ITERATIONS = 1000;
 
+    auto l_start_time = std::chrono::high_resolution_clock::now();
+
+    case 1:
+        matmul_mnk(l_A, l_B, l_C, size, size, size);
+        size_type sz = "MNK";
+        break;
+    case 2:
+        matmul_mkn(l_A, l_B, l_C, size, size, size);
+        size_type sz = "MKN";
+        break;
+    case 3:
+        matmul_nkm(l_A, l_B, l_C, size, size, size);
+        size_type sz = "NKM";
+        break;
+    case 4:
+        matmul_nmk(l_A, l_B, l_C, size, size, size);
+        size_type sz = "NMK";
+        break;
+    case 5:
+        matmul_knm(l_A, l_B, l_C, size, size, size);
+        size_type sz = "KNM";
+        break;
+    case 6:
+        matmul_kmn(l_A, l_B, l_C, size, size, size);
+        size_type sz = "KMN";
+        break;
+
+        std::chrono::duration<double> l_duration = l_end_time - l_start_time;
+
+        double l_data_access_speed = 3.0 * size * ITERATIONS / l_duration.count() / (1024 * 1024 * 1024);
+
+        outfile << sz << size << l_data_access_speed << std::endl;
+
+        delete[] l_A;
+        delete[] l_B;
+        delete[] l_C;
+}
 int main(int argc, char** argv) {
     MPI_Init(&argc, &argv);
 
@@ -98,81 +138,6 @@ int main(int argc, char** argv) {
             l_B[i] = static_cast<double>(std::rand()) / RAND_MAX;
             l_C[i] = 0.0;
         }
-        // MNK
-        auto l_start_time = std::chrono::high_resolution_clock::now();
-
-        matmul_mnk(l_A, l_B, l_C, size, size, size);
-
-        auto l_end_time = std::chrono::high_resolution_clock::now();
-        std::chrono::duration<double> l_duration = l_end_time - l_start_time;
-
-        double l_data_access_speed = 3.0 * size * ITERATIONS / l_duration.count() / (1024 * 1024 * 1024);
-
-        outfile << 'MNK' << size << "," << l_data_access_speed << std::endl;
-
-        // MKN
-        auto l_start_time = std::chrono::high_resolution_clock::now();
-
-        matmul_mkn(l_A, l_B, l_C, size, size, size);
-
-        auto l_end_time = std::chrono::high_resolution_clock::now();
-        std::chrono::duration<double> l_duration = l_end_time - l_start_time;
-
-        double l_data_access_speed = 3.0 * size * ITERATIONS / l_duration.count() / (1024 * 1024 * 1024);
-
-        std::cout << 'MKN' << size << "," << l_data_access_speed << std::endl;
-
-        // KMN
-        auto l_start_time = std::chrono::high_resolution_clock::now();
-
-        matmul_kmn(l_A, l_B, l_C, size, size, size);
-
-        auto l_end_time = std::chrono::high_resolution_clock::now();
-        std::chrono::duration<double> l_duration = l_end_time - l_start_time;
-
-        double l_data_access_speed = 3.0 * size * ITERATIONS / l_duration.count() / (1024 * 1024 * 1024);
-
-        outfile << 'KMN' << size << "," << l_data_access_speed << std::endl;
-
-        // KNM
-        auto l_start_time = std::chrono::high_resolution_clock::now();
-
-        matmul_knm(l_A, l_B, l_C, size, size, size);
-
-        auto l_end_time = std::chrono::high_resolution_clock::now();
-        std::chrono::duration<double> l_duration = l_end_time - l_start_time;
-
-        double l_data_access_speed = 3.0 * size * ITERATIONS / l_duration.count() / (1024 * 1024 * 1024);
-
-        outfile << 'KNM' << size << "," << l_data_access_speed << std::endl;
-
-        // NKM
-        auto l_start_time = std::chrono::high_resolution_clock::now();
-
-        matmul_nkm(l_A, l_B, l_C, size, size, size);
-
-        auto l_end_time = std::chrono::high_resolution_clock::now();
-        std::chrono::duration<double> l_duration = l_end_time - l_start_time;
-
-        double l_data_access_speed = 3.0 * size * ITERATIONS / l_duration.count() / (1024 * 1024 * 1024);
-
-        outfile << 'NKM' << size << "," << l_data_access_speed << std::endl;
-
-        // NMK
-        auto l_start_time = std::chrono::high_resolution_clock::now();
-
-        matmul_nmk(l_A, l_B, l_C, size, size, size);
-
-        auto l_end_time = std::chrono::high_resolution_clock::now();
-        std::chrono::duration<double> l_duration = l_end_time - l_start_time;
-
-        double l_data_access_speed = 3.0 * size * ITERATIONS / l_duration.count() / (1024 * 1024 * 1024);
-
-        outfile << 'NMK' << size << "," << l_data_access_speed << std::endl;
-
-        delete[] l_A;
-        delete[] l_B;
-        delete[] l_C;
     }
 
     MPI_Finalize();
