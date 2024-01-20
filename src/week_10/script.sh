@@ -14,4 +14,4 @@ mpicxx -o matrix_multiplication.o matrix_multiplication.cpp
 
 # Enter your executable commands here
 # Execute the compiled program
-mpirun -np ./matrix_multiplication.o
+mpirun -np 10 ./matrix_multiplication.o
