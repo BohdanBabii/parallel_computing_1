@@ -7,6 +7,8 @@
 #include <cstdlib>
 #include <iostream>
 #include <random>
+#include <fstream>
+
 
 void matmul_mnk(double* i_A,
                 double* i_B,
@@ -79,9 +81,8 @@ void matmul_kmn(double* i_A,
             for (std::size_t l_n = 0; l_n < i_n; l_n++)
                 io_C[l_m * i_n + l_n] += i_A[l_m * i_k + l_k] * i_B[l_k * i_n + l_n];
 }
-void getTime(double* l_A, double* l_B, double* l_C, int size, int type) {
+void getTime(double* l_A, double* l_B, double* l_C, int size, int type, std::ofstream& outfile) {
     std::string sz;
-    const int ITERATIONS = 1000;
 
     auto l_start_time = std::chrono::high_resolution_clock::now();
     switch (type) {
@@ -115,14 +116,9 @@ void getTime(double* l_A, double* l_B, double* l_C, int size, int type) {
 
     auto l_end_time = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> l_duration = l_end_time - l_start_time;
+    double gflops = 2.0 * size * size * size / (1.0e9 * l_duration.count()); 
 
-    double l_data_access_speed = 3.0 * size * ITERATIONS / l_duration.count() / (1024 * 1024 * 1024);
-
-    std::cout << sz << size << l_data_access_speed << std::endl;
-
-    delete[] l_A;
-    delete[] l_B;
-    delete[] l_C;
+    outfile << sz << "," << size << "," << gflops << std::endl;
 }
 
 int main(int argc, char** argv) {
@@ -131,28 +127,39 @@ int main(int argc, char** argv) {
     int l_comm_rank;
     MPI_Comm_rank(MPI_COMM_WORLD, &l_comm_rank);
 
-    std::cout << "Implementation "
-              << "M=N=K "
-              << "GFLOPS" << std::endl;
+    std::ofstream outfile("performance.csv");
+
+    if (!outfile.is_open()) {
+        std::cerr << "Error: Could not create file!" << std::endl;
+        return 1;
+    }
+
+    outfile << "Implementation,"
+            << "M=N=K,"
+            << "GFLOPS" << std::endl;
 
     for (int size = 2; size <= 1024; size *= 2) {
         double* l_A = new double[size * size];
         double* l_B = new double[size * size];
         double* l_C = new double[size * size];
 
-        for (int i = 0; i < size / sizeof(double); ++i) {
+        for (int i = 0; i < size * size; ++i) {
             l_A[i] = static_cast<double>(std::rand()) / RAND_MAX;
             l_B[i] = static_cast<double>(std::rand()) / RAND_MAX;
             l_C[i] = 0.0;
         }
-        getTime(l_A, l_B, l_C, size, 1);
-        getTime(l_A, l_B, l_C, size, 2);
-        getTime(l_A, l_B, l_C, size, 3);
-        getTime(l_A, l_B, l_C, size, 4);
-        getTime(l_A, l_B, l_C, size, 5);
-        getTime(l_A, l_B, l_C, size, 6);
+        getTime(l_A, l_B, l_C, size, 1, outfile);
+        getTime(l_A, l_B, l_C, size, 2, outfile);
+        getTime(l_A, l_B, l_C, size, 3, outfile);
+        getTime(l_A, l_B, l_C, size, 4, outfile);
+        getTime(l_A, l_B, l_C, size, 5, outfile);
+        getTime(l_A, l_B, l_C, size, 6, outfile);
+        
+        delete[] l_A;
+        delete[] l_B;
+        delete[] l_C;
     }
-
+    outfile.close();
     MPI_Finalize();
     return 0;
 }
