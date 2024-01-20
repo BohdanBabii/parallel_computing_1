@@ -79,54 +79,61 @@ void matmul_kmn(double* i_A,
             for (std::size_t l_n = 0; l_n < i_n; l_n++)
                 io_C[l_m * i_n + l_n] += i_A[l_m * i_k + l_k] * i_B[l_k * i_n + l_n];
 }
-void getTime(double* i_A, double* i_B, int type) {
-    String::size_type sz;
+void getTime(double* l_A, double* l_B, double* l_C, int size, int type) {
+    std::string sz;
     const int ITERATIONS = 1000;
 
     auto l_start_time = std::chrono::high_resolution_clock::now();
+    switch (type) {
+        case 1:
+            matmul_mnk(l_A, l_B, l_C, size, size, size);
+            sz = "MNK";
+            break;
+        case 2:
+            matmul_mkn(l_A, l_B, l_C, size, size, size);
+            sz = "MKN";
+            break;
+        case 3:
+            matmul_nkm(l_A, l_B, l_C, size, size, size);
+            sz = "NKM";
+            break;
+        case 4:
+            matmul_nmk(l_A, l_B, l_C, size, size, size);
+            sz = "NMK";
+            break;
+        case 5:
+            matmul_knm(l_A, l_B, l_C, size, size, size);
+            sz = "KNM";
+            break;
+        case 6:
+            matmul_kmn(l_A, l_B, l_C, size, size, size);
+            sz = "KMN";
+            break;
+        default:
+            break;
+    }
 
-    case 1:
-        matmul_mnk(l_A, l_B, l_C, size, size, size);
-        size_type sz = "MNK";
-        break;
-    case 2:
-        matmul_mkn(l_A, l_B, l_C, size, size, size);
-        size_type sz = "MKN";
-        break;
-    case 3:
-        matmul_nkm(l_A, l_B, l_C, size, size, size);
-        size_type sz = "NKM";
-        break;
-    case 4:
-        matmul_nmk(l_A, l_B, l_C, size, size, size);
-        size_type sz = "NMK";
-        break;
-    case 5:
-        matmul_knm(l_A, l_B, l_C, size, size, size);
-        size_type sz = "KNM";
-        break;
-    case 6:
-        matmul_kmn(l_A, l_B, l_C, size, size, size);
-        size_type sz = "KMN";
-        break;
+    auto l_end_time = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> l_duration = l_end_time - l_start_time;
 
-        std::chrono::duration<double> l_duration = l_end_time - l_start_time;
+    double l_data_access_speed = 3.0 * size * ITERATIONS / l_duration.count() / (1024 * 1024 * 1024);
 
-        double l_data_access_speed = 3.0 * size * ITERATIONS / l_duration.count() / (1024 * 1024 * 1024);
+    std::cout << sz << size << l_data_access_speed << std::endl;
 
-        outfile << sz << size << l_data_access_speed << std::endl;
-
-        delete[] l_A;
-        delete[] l_B;
-        delete[] l_C;
+    delete[] l_A;
+    delete[] l_B;
+    delete[] l_C;
 }
+
 int main(int argc, char** argv) {
     MPI_Init(&argc, &argv);
 
     int l_comm_rank;
     MPI_Comm_rank(MPI_COMM_WORLD, &l_comm_rank);
 
-    std::cout << 'Implementation' << 'M=N=K' << 'GFLOPS' << std::endl;
+    std::cout << "Implementation "
+              << "M=N=K "
+              << "GFLOPS" << std::endl;
 
     for (int size = 2; size <= 1024; size *= 2) {
         double* l_A = new double[size * size];
@@ -138,6 +145,12 @@ int main(int argc, char** argv) {
             l_B[i] = static_cast<double>(std::rand()) / RAND_MAX;
             l_C[i] = 0.0;
         }
+        getTime(l_A, l_B, l_C, size, 1);
+        getTime(l_A, l_B, l_C, size, 2);
+        getTime(l_A, l_B, l_C, size, 3);
+        getTime(l_A, l_B, l_C, size, 4);
+        getTime(l_A, l_B, l_C, size, 5);
+        getTime(l_A, l_B, l_C, size, 6);
     }
 
     MPI_Finalize();
